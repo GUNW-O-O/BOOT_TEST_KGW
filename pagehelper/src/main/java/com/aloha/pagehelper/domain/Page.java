@@ -21,7 +21,7 @@ import lombok.Data;
  */
 
  @Data
-public class Pagination {
+public class Page {
     // 페이징 기본값
     private static final long PAGE = 1;      // 현재 페이지 번호 기본값    
     private static final long SIZE = 10;      // 페이지 당 데이터 수 기본값    
@@ -46,23 +46,23 @@ public class Pagination {
 
     
     /* ########## 생성자 ########## */
-    public Pagination() {
+    public Page() {
         this(0);
     }
 
     // 데이터 수
-    public Pagination(long total) {
+    public Page(long total) {
         this(PAGE, total);
     }
 
     
     // 현재 번호, 데이터 수
-    public Pagination(long page, long total) {
+    public Page(long page, long total) {
         this(page, SIZE, COUNT, total);
     }
 
     // 필수 정보
-    public Pagination(long page, long size, long count, long total) {
+    public Page(long page, long size, long count, long total) {
         this.page = page;
         this.size = size;
         this.count = count;

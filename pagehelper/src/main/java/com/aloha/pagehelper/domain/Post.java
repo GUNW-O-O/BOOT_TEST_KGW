@@ -13,7 +13,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @Builder
-public class Posts {
+public class Post {
 
     private Long no;
     private String id;
@@ -23,7 +23,7 @@ public class Posts {
     private Date createdAt;
     private Date updatedAt;
     
-    public Posts() {
+    public Post() {
         this.id = UUID.randomUUID().toString();
     }
     

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PagehelperApplication<pagehelper>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aloha.pagehelper.PagehelperApplication",
+            "projectName": "pagehelper",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

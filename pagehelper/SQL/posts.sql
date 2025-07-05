@@ -1,3 +1,4 @@
+-- Active: 1745889699734@@127.0.0.1@3306@aloha
 -- posts (게시글) 테이블
 
 DROP TABLE IF EXISTS `posts`;

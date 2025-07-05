@@ -6,20 +6,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace="매퍼 인터페이스 경로" --> 
 <mapper namespace="com.aloha.pagehelper.mapper.PostMapper">
     <!-- 목록 -->
-    <select id="list" resultType="Posts">
+    <select id="list" resultType="Post">
         SELECT *
         FROM posts
     </select>
 
     <!-- 페이징 처리된 목록 -->
-    <select id="page" resultType="Posts">
+    <select id="page" resultType="Post">
         SELECT *
         FROM posts
         LIMIT #{index}, #{size}
     </select>
 
     <!-- 조회 -->
-    <select id="select" resultType="Posts">
+    <select id="select" resultType="Post">
         SELECT *
         FROM posts
         WHERE no = #{no}
