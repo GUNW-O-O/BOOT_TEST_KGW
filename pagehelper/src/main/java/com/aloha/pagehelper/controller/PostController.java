@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -63,13 +62,13 @@ public class PostController {
         return "posts/list";
     }
     
-    @GetMapping("/create")
+    @GetMapping("/insert")
     public String createForm(Model model) {
         model.addAttribute("post", new Post());
-        return "posts/create";
+        return "posts/insert";
     }
 
-    @PostMapping("")
+    @PostMapping("/insert")
     public String insert(Post post, RedirectAttributes rttr) throws Exception {
         boolean success = postService.insert(post);
         if (success) {
@@ -77,7 +76,7 @@ public class PostController {
             return "redirect:/posts/list";
         } else {
             rttr.addFlashAttribute("msg", "등록 실패");
-            return "posts/create";
+            return "posts/insert";
         }
     }
 
@@ -100,12 +99,12 @@ public class PostController {
         boolean result = postService.update(post);
         if( result )
             return "redirect:/posts/list";
-        return "redirect:/posts/update?error=true";
+        return "redirect:/posts/update/" + post.getNo() + "error=true";
     }
 
-    @PostMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Integer id) throws Exception {
-        boolean result = postService.delete(id);
+    @PostMapping("/delete/{no}")
+    public String delete(@PathVariable("no") Integer no) throws Exception {
+        boolean result = postService.delete(no);
         if( result )
             return "redirect:/posts/list";
         return "redirect:/posts/update?error=true";

@@ -16,21 +16,21 @@
         </div>
         <div class="card p-4 shadow">
             <form action="/posts/create" method="post" th:object="${post}">
-                <!-- CSRF TOKEN -->
-                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> -->
-    
                 <div class="mb-3">
                     <label for="title" class="form-label">제목</label>
                     <input type="text" class="form-control" th:field="*{title}">
                 </div>
-    
+                <div class="mb-3">
+                    <label for="title" class="form-label">작성자</label>
+                    <input type="text" class="form-control" th:field="*{writer}">
+                </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">내용</label>
                     <textarea rows="5" cols="50" th:field="*{content}" class="form-control"></textarea>
                 </div>
     
                 <div class="d-grid gap-2">
-                    <a href="/posts/list" class="btn btn-lg btn-success">목록</a>
+                    <a href="/posts/list" class="btn btn-success">목록</a>
                     <a th:href="@{/posts/update/{no}(no=*{no})}" class="btn btn-primary">수정</a>
                 </div>
             </form>

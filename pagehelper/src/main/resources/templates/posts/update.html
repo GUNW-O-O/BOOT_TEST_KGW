@@ -16,12 +16,15 @@
         </div>
         <div class="card p-4 shadow">
             <form id="form" action="/posts/update" method="post" th:object="${post}">
-                <!-- CSRF TOKEN -->
-                <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{no}">
     
                 <div class="mb-3">
                     <label for="title" class="form-label">제목</label>
                     <input type="text" class="form-control" th:field="*{title}">
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">작성자</label>
+                    <input type="text" class="form-control" th:field="*{writer}">
                 </div>
     
                 <div class="mb-3">
@@ -48,7 +51,7 @@
         const $form = document.getElementById("form")
 
         function remove() {
-            $form.action = "/posts/update"
+            $form.action = "/posts/delete/[[${post.no}]]"
             $form.submit()
         }
     </script>
